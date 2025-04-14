@@ -7,6 +7,7 @@
 ```
 ai-rpa/
 ├── analyzers/            # AI分析模块
+├── chart_generator/      # 图表生成器模块
 ├── config/               # 配置文件
 ├── processors/           # 数据处理模块
 ├── scrapers/             # 爬虫模块
@@ -26,6 +27,7 @@ ai-rpa/
 - **数据标准化**：统一的数据模型和处理流程
 - **AI分析**：使用NLP技术对内容进行分析
 - **灵活存储**：支持SQLite、MySQL和MongoDB多种存储方式
+- **图表生成**：支持将Excel和结构化数据生成多种图表
 
 ## 使用方法
 
@@ -91,6 +93,27 @@ class MyNewScraper(BaseScraper):
         # 实现内容解析逻辑
         pass
 ```
+
+## 图表生成器使用方法
+
+图表生成器模块可以帮助您从Excel或其他结构化数据生成各种图表。
+
+### 基本用法
+
+```python
+from chart_generator import ChartGenerator
+
+# 从数据创建图表生成器
+chart_gen = ChartGenerator(your_dataframe_or_file_path)
+
+# 生成图表
+chart_gen.create_bar_chart(x列名, y列名, 标题)
+chart_gen.create_line_chart(x列名, [y列名1, y列名2], 标题)
+chart_gen.create_pie_chart(标签列名, 值列名, 标题)
+chart_gen.create_heatmap(标题)
+```
+
+更多示例请参考`chart_generator/examples.py`。
 
 ## 许可证
 
